@@ -1,0 +1,129 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000;
+
+}
+
+.navbar .titulo {
+    font-size: 2.5em;
+    /* Tamaño de fuente más grande */
+    color: #F5CBA7;
+    /* Color blanco */
+    font-family: 'Times New Roman';
+    /* Fuente específica */
+}
+
+.navbar img {
+    height: 50px;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre enlaces */
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+    /* Ajusta el padding horizontal */
+    margin-right: 10px;
+    /* Espacio derecho entre cada enlace */
+    margin-left: -10px;
+    /* Margen izquierdo negativo para mover los enlaces hacia la izquierda */
+}
+
+.navbar.scrolled {
+    background-color: #333;
+}
+.register-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.register-link i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+
+.content {
+    margin-top: 80px;
+    /* Altura de la barra de navegación */
+    padding: 20px;
+}
+
+.hero {
+    position: relative;
+    /* Necesario para posicionar el pseudo-elemento correctamente */
+    background: url('../img/narvar3.jpg') no-repeat center center;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    /* Alinea los elementos en columna */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    /* Alinea el texto al centro */
+    overflow: hidden;
+    /* Para asegurar que el pseudo-elemento no cause scrollbars */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Color negro semi-transparente */
+}
+
+.hero h1,
+.hero h3 {
+    position: relative;
+    /* Para asegurar que el texto esté por encima del pseudo-elemento */
+    z-index: 1;
+    /* Asegura que el texto esté por encima del pseudo-elemento */
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero h3 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: normal;
+    /* Elimina la negrita */
+}
+
+/*FOOTER*/
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,106 @@
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Z-index alto para que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.modal-divider {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0 20px 0;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.form-group {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.form-group:nth-child(odd) {
+    clear: both;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #5D6D7E;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]::after {
+    content: "\1F6D2"; /* Unicode para el icono de carrito */
+    margin-left: 10px;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #34495E;
+}

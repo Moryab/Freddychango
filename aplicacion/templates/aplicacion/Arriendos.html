@@ -1,0 +1,195 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+
+{% block contenido %}
+
+
+    <div class="hero">
+        <h1>Servicios de alquiler de bicicletas.</h1>
+        <h3>Brindamos servicios de alquiler de bicicletas asequibles y confiables en todo Chile.</h3>
+    </div>
+    <!--CONTENIDO PAGINA-->
+    <!--imagnes categorias-->
+    <div class="container-btn-categoria">
+        <div class="button">
+            <a href="pagina1.html">
+                <img src="{% static 'aplicacion/img/venta.jpeg' %}" alt="Botón 1">
+                <div class="overlay-text">Venta</div>
+            </a>
+        </div>
+        <div class="button">
+            <a href="pagina2.html">
+                <img src="{% static 'aplicacion/img/arriendoo.jpg' %}" alt="Botón 2">
+                <div class="overlay-text">Arriendo</div>
+            </a>
+        </div>
+        <div class="button">
+            <a href="pagina3.html">
+                <img src="{% static 'aplicacion/img/reparacion.jpg' %}" alt="Botón 3">
+                <div class="overlay-text">Reparación</div>
+            </a>
+        </div>
+    </div>
+    
+    <h1 class="titulo-principal">Arriendo de bicicletas</h1>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Tipo de Bicicleta</h2>
+            <ul>
+                <li class="categoria">
+                    <ul>
+                        <li>Ruta</li>
+                        <li>Mountainbike</li>
+                        <li>Triatlón</li>
+                        <li>Gravel / Cyclocross</li>
+                        <li>E-Bike</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Filtrar por Talla</h3>
+            <select class="talla">
+                <option>Seleccionar Talla</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+
+            <h3>Filtrar por Año</h3>
+            <select class="año">
+                <option>Seleccionar Año</option>
+                <option value="2019">2019</option>
+                <option value="2022">2022</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        <div class="main-content">
+            <div id="bicicletas" class="tab-content active">
+                <h2>Seleccion de bicicletas</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="discount">15% OFF</div>
+                        <img src="{% static 'aplicacion/img/narvar3.jpg' %}" alt="Mountain bike Electric bicycle">
+                        <p class="titulo-tarjetas">Mountain bike Electric bicycle</p>
+                        <p class="rating">★★★★☆</p>
+                        <div class="price-list">
+                            <p>1 día: $15</p>
+                            <p>2 días: $25</p>
+                            <p>3 días: $35</p>
+                        </div>
+                        <button onclick="openModal()">Seleccionar</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="{% static 'aplicacion/img/narvar2.webp' %}" alt="Road bicycle, HD black mountain">
+                        <p class="titulo-tarjetas">Mountain bike Electric bicycle</p>
+                        <p class="rating">★★★★☆</p>
+                        <div class="price-list">
+                            <p>1 día: $12</p>
+                            <p>2 días: $22</p>
+                            <p>3 días: $32</p>
+                        </div>
+                        <button onclick="showErrorAlert()">Seleccionar</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="{% static 'aplicacion/img/electrica.webp' %}" alt="Mountain bike Bicycle frame 29er">
+                        <p class="titulo-tarjetas">Mountain bike Electric bicycle</p>
+                        <p class="rating">★★★★☆</p>
+                        <div class="price-list">
+                            <p>1 día: $18</p>
+                            <p>2 días: $30</p>
+                            <p>3 días: $40</p>
+                        </div>
+                        <button onclick="openModal()">Seleccionar</button>
+                    </div>                                      
+                    <div class="product-card">
+                        <img src="{% static 'aplicacion/img/narvar.png' %}" alt="Diamond back Bicycles Bicycle">
+                        <p class="titulo-tarjetas">Mountain bike Electric bicycle</p>
+                        <p class="rating">★★★★☆</p>
+                        <div class="price-list">
+                            <p>1 día: $20</p>
+                            <p>2 días: $35</p>
+                            <p>3 días: $45</p>
+                        </div>
+                        <button onclick="openModal()">Seleccionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="closeModal()">&times;</span>
+            <!-- Título del modal -->
+            <h2 class="modal-title">Detalle de Selección</h2>
+            <!-- Línea divisoria -->
+            <hr class="modal-divider">
+            <!-- Contenido dinámico del modal -->
+            <div id="bike-details">
+                <!-- Aquí se mostrará dinámicamente la información de la bicicleta seleccionada -->
+                <img id="bike-details-img" src="" alt="Bicicleta seleccionada">
+                <h3 id="bike-details-name"></h3>
+            </div>
+            <!-- Formulario para el arriendo -->
+            <form id="rentalForm" action="/submit-selection" method="POST" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="bike-type">Tipo de Bicicleta:</label>
+                    <input type="text" id="bike-type" name="bike-type" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="bike-size">Talla de Bicicleta:</label>
+                    <select id="bike-size" name="bike-size" required>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bike-wheel-size">Aro de Bicicleta:</label>
+                    <select id="bike-wheel-size" name="bike-wheel-size" required>
+                        <option value="26">26 pulgadas</option>
+                        <option value="27.5">27.5 pulgadas</option>
+                        <option value="29">29 pulgadas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Fecha de Inicio del Arriendo:</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="rental-days">Cantidad de Días de Arriendo:</label>
+                    <select id="rental-days" name="rental-days" onchange="calculateTotal()" required>
+                        <option value="1">1 día - $15</option>
+                        <option value="2">2 días - $25</option>
+                        <option value="3">3 días - $35</option>
+                        <option value="5">5 días - $50</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Forma de Pago:</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="credit-card">Tarjeta de Crédito</option>
+                        <option value="debit-card">Tarjeta de Débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="bank-transfer">Transferencia Bancaria</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deposit">Depósito de Garantía:</label>
+                    <input type="number" id="deposit" name="deposit" value="100" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="total-price">Precio Total:</label>
+                    <input type="text" id="total-price" name="total-price" readonly>
+                </div>
+                <div class="form-group">
+                    <!-- Botón para confirmar la selección -->
+                    <input type="submit" value="Enviar solicitud">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock contenido %}

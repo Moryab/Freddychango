@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freddy Turbina</title>
+    <link href="{% static 'aplicacion/css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'aplicacion/css/narvar.css' %}">
+    <link rel="stylesheet" href="{% static 'aplicacion/css/style.css' %}">
+    <script src="{% static 'aplicacion/js/bootstrap.bundle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'aplicacion/css/seleccion.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <div class="titulo">Freddy Turbina</div>
+        <div class="menu">
+            <a href="#home">Bicicleta</a>
+            <a href="{% url 'Arriendos' %}">Arriendos</a>
+            <a href="#services">Reparaciones</a>
+            <a href="{% url 'login' %}">
+                <i class="fas fa-user"></i>
+            </a>     
+            <a href="#carrito">
+                <i class="fas fa-shopping-bag"></i>
+            </a>        
+        </div>
+    </div>
+    {% block contenido %}
+    
+    
+    
+    {% endblock contenido %}
+
+
+
+    </div>
+
+    <footer>
+        © 2024 Freddy Turbina. Todos los derechos reservados.
+    </footer>
+
+    <script src="{% static 'aplicacion/js/bicis.js' %}"></script>
+    <script src="{% static 'aplicacion/js/mensajes.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

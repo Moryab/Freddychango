@@ -1,0 +1,110 @@
+{% extends "aplicacion/baseadmin.html" %}
+{% load static %}
+
+
+{% block contenido2 %}
+
+
+<link rel="stylesheet" href="{% static 'aplicacion/css/admbtn.css' %}">
+
+        <button class="cssbuttons-io-button-añadir" onclick="window.location.href='{% url 'addproduc' %}'">
+            Añadir Bicicleta
+            <div class="icon">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                        fill="currentColor"></path>
+                </svg>
+            </div>
+        </button>
+
+
+    <!--LISTA DE PRODUCTOS-->
+
+    <div id="lista" class="content-section">
+      <div class="container mt-5"><!--main container-->
+          <h1>Listado de Bicicletas</h1>
+          <input class="form-control mb-4" id="tableSearch" type="text" placeholder="Buscar Productos...">
+          <div class="mt-2 table-responsive">
+              <table class="table table-hover">
+                  <thead class="table-dark">
+                      <tr>
+                          <th>ID</th>
+                          <th>Nombre</th>
+                          <th>Imagen</th>
+                          <th>Categoria</th>
+                          <th>Talla</th>
+                          <th>Aro</th>
+                          <th>Precio</th>
+                          <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>1</td>
+                          <td>Mountain bike Electric bicycle</td>
+                          <td><img src="{% static 'aplicacion/img/electrica.webp' %}" alt="Bici" height="50" width="80"></td>
+                          <td>Electrica</td>
+                          <td>L</td>
+                          <td>27</td>
+                          <td>$500.500</td>
+                          <td>
+                              <a class="btn btn-sm btn-editar" href="{% url 'editarprod' %}">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                              <a class="btn btn-sm btn-borrar btn-confirmar" href="">
+                                  <i class="fas fa-trash"></i>
+                              </a>                              
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>2</td>
+                          <td>Mountain bike Electric bicycle</td>
+                          <td><img src="{% static 'aplicacion/img/arriendoo.jpg' %}" alt="Bici" height="50" width="80"></td>
+                          <td>Electrica</td>
+                          <td>L</td>
+                          <td>27</td>
+                          <td>$750.500</td>
+                          <td>
+                              <a class="btn btn-sm btn-editar" href="{% url 'editarprod' %}">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                              <a class="btn btn-sm btn-borrar btn-confirmar" href="">
+                                  <i class="fas fa-trash"></i>
+                              </a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>3</td>
+                          <td>Mountain bike Electric bicycle</td>
+                          <td><img src="{% static 'aplicacion/img/arriendo.webp' %}" alt="Bici" height="50" width="80"></td>
+                          <td>Electrica</td>
+                          <td>L</td>
+                          <td>27</td>
+                          <td>$600.500</td>
+                          <td>
+                              <a class="btn btn-sm btn-editar" href="{% url 'editarprod' %}">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                              <a class="btn btn-sm btn-borrar btn-confirmar" href="">
+                                  <i class="fas fa-trash"></i>
+                              </a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+<!--               <ul class="pagination text-center">
+                  <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+              </ul> -->
+          </div>
+      </div><!--main container ends-->
+  </div>
+
+  <script src="{% static 'aplicacion/"js/confirmacion.js' %}"></script>
+  
+{% endblock contenido2 %}
+

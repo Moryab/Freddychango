@@ -1,0 +1,134 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../img/narvar3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh; /* Ajusta la altura según necesites */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.navbar1 {
+    position: fixed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent; /* Fondo transparente para el navbar */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar1.scrolled {
+    background-color: #333; /* Color de fondo al hacer scroll */
+}
+
+.navbar1 .titulo {
+    font-size: 2.5em; /* Tamaño de fuente del título */
+    color: white; /* Color del texto */
+    font-family: 'Times New Roman'; /* Fuente específica */
+}
+
+.navbar1 .menu {
+    display: flex;
+    gap: 30px; /* Espacio entre enlaces */
+}
+
+.navbar1 .menu a {
+    color: white; /* Color del texto */
+    text-decoration: none;
+    padding: 10px 30px; /* Ajusta el padding horizontal */
+    margin-right: 10px; /* Espacio derecho entre cada enlace */
+}
+
+.navbar1 .menu a:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último enlace */
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.795); /* Color negro semi-transparente */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 40px; /* Ajusta según el espacio deseado */
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Alinear etiquetas a la izquierda */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: calc(100% - 16px); /* Ajusta el ancho del input restando el padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 8px; /* Margen derecho para separar los campos */
+    margin-bottom: 8px; /* Margen inferior para separar los campos */
+    
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espacio arriba del botón */
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.register-link {
+    margin-top: 15px; /* Espacio arriba del enlace de registro */
+    text-align: center;
+}
+
+.register-link a {
+    color: #bee3f8;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px; /* Ajusta según el espacio deseado */
+}
