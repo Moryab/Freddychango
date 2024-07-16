@@ -1,5 +1,7 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import login as auth_login
+from django.contrib.auth.views import LoginView
+from .forms import RegistroForm
 # Create your views here.
 def addproduc(request):
     return render(request,'aplicacion/addproduc.html')
@@ -22,5 +24,18 @@ def editarprod(request):
 def login(request):
     return render(request,'aplicacion/login.html')
 
+
+
 def registro(request):
-    return render(request,'aplicacion/registro.html')
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)  # <- Usa el alias aquí
+            return redirect('home')  # Redirige a la página principal después del registro
+    else:
+        form = RegistroForm()
+    return render(request, 'aplicacion/registro.html', {'form': form})
+
+class CustomLoginView(LoginView):
+    template_name = 'aplicacion/login.html'

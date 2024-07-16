@@ -10,6 +10,7 @@ Function views
 """
 from django.urls import path, include
 from .views import Arriendos, login, addproduc, admpagregar, adm, admpedidos, editarprod, registro
+from django.contrib.auth import views as auth_views
 """ from .views import """
 
 from django.conf import settings
@@ -23,9 +24,8 @@ urlpatterns = [
     path('admpagregar/',admpagregar, name='admpagregar'),
     path('admpedidos/',admpedidos, name='admpedidos'),
     path('editarprod/',editarprod, name='editarprod'),
-    path('login/',login, name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='aplicacion/login.html'), name='login'),
     path('registro/',registro, name='registro'),
-
 
 
 
